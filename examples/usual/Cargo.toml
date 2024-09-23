@@ -1,0 +1,16 @@
+[package]
+name = "usual-example"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+flopper = { path = "../.." }
+
+tracing-subscriber = "0.3.18"
+tokio = { version = "1.40.0", features = ["full"] }
+dotenvy = "0.15.7"
+dotenvy_macro = "0.15.7"
+anyhow = "1.0.89"
+base64 = "0.22.1"
+tracing = "0.1.40"

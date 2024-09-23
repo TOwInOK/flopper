@@ -1,0 +1,33 @@
+[package]
+name = "flopper"
+version = "0.1.0"
+edition = "2021"
+authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
+readme = "Readme.md"
+description = ""
+categories = []
+keywords = []
+license = "MIT"                                                   # chanhe to apache 2
+repository = "https://github.com/TOwInOK/flopper"
+
+[dependencies]
+miniserde = "0.1.40"
+reqwest = { version = "0.12.7", features = ["json", "multipart"] }
+thiserror = "1.0.64"
+tracing = "0.1.40"
+tokio = { version = "1.40.0" }
+
+[dev-dependencies]
+tracing-subscriber = "0.3.18"
+tokio = { version = "1.40.0", features = ["full"] }
+dotenvy = "0.15.7"
+dotenvy_macro = "0.15.7"
+anyhow = "1.0.89"
+base64 = "0.22.1"
+
+[[bin]]
+name = "usual-example"
+bench = false
+test = false
+doc = false
+path = "src/main.rs"
