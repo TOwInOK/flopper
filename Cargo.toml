@@ -1,13 +1,20 @@
 [package]
 name = "flopper"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
 readme = "Readme.md"
-description = ""
-categories = []
-keywords = []
-license = "MIT"                                                   # chanhe to apache 2
+description = "unofficial api wrapper for fusionbrain.ai"
+categories = ["api-bindings"]
+keywords = [
+    "api",
+    "image",
+    "image-generation",
+    "image-generation-api",
+    "fusionbrain",
+    "kandinsky",
+]
+license = "MIT"
 repository = "https://github.com/TOwInOK/flopper"
 
 [dependencies]
@@ -28,6 +35,12 @@ base64 = "0.22.1"
 
 [[example]]
 name = "usual"
+bench = false
+test = false
+doc = false
+
+[[example]]
+name = "usual_macro"
 bench = false
 test = false
 doc = false
