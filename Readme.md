@@ -1,6 +1,6 @@
 # Flopper
 [![Crates.io](https://img.shields.io/crates/v/flopper.svg)](https://crates.io/crates/flopper)
-[![Documentation](https://docs.rs/flopper/badge.svg)](https://docs.rs/flopper)
+[![Documentation]( https://img.shields.io/badge/docs-doc.rs-red)](https://docs.rs/flopper)
 [![License](https://img.shields.io/crates/l/flopper.svg)](LICENSE)
 
 Flopper is an async Rust library for generating images using [fusionbrain api](https://fusionbrain.ai).
