@@ -5,7 +5,7 @@ mod flopper_test {
     use anyhow::Ok;
     use base64::Engine;
     use dotenvy_macro::dotenv;
-    use flopper::{Flopper, Params};
+    use flopper::prelude::*;
 
     const KEY: &str = dotenv!("KEY");
     const SECRET: &str = dotenv!("SECRET");
@@ -26,12 +26,29 @@ mod flopper_test {
     #[tokio::test]
     async fn fetch() -> anyhow::Result<()> {
         LazyLock::force(&TS);
-        let flopper = Flopper::build(KEY.to_string(), SECRET.to_string(), None).await?;
+        let flopper = Flopper::build(KEY.to_string(), SECRET.to_string(), None, None).await?;
         let mut params = Params::default();
         params.q("forest".to_string());
         let info = flopper.push(params).await?;
         let result = flopper.try_fetch(info).await?;
         let image = base64::engine::general_purpose::STANDARD.decode(result[0].clone())?;
+        std::fs::write("test_image.png", image)?;
+        Ok(())
+    }
+
+    #[tokio::test]
+    async fn flop_fetch() -> anyhow::Result<()> {
+        LazyLock::force(&TS);
+        let images = flop!(
+            KEY,
+            SECRET,
+            n = 1,
+            w = 512,
+            h = 512,
+            q = "forest".to_string(),
+            m = 4
+        );
+        let image = base64::engine::general_purpose::STANDARD.decode(images[0].clone())?;
         std::fs::write("test_image.png", image)?;
         Ok(())
     }

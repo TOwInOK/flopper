@@ -26,6 +26,7 @@ use work::Work;
 pub struct Flopper {
     client: Arc<Client>,
     model: usize,
+    duration: usize,
 }
 
 impl Flopper {
@@ -43,7 +44,12 @@ impl Flopper {
 
     #[instrument(skip(key, secret))]
     /// Create static client for requests
-    pub async fn build(key: String, secret: String, model: Option<usize>) -> Result<Self> {
+    pub async fn build(
+        key: String,
+        secret: String,
+        model: Option<usize>,
+        duration: Option<usize>,
+    ) -> Result<Self> {
         let key = format!("Key {}", key);
         let secret = format!("Secret {}", secret);
         let mut headers = HeaderMap::new();
@@ -56,6 +62,7 @@ impl Flopper {
         Ok(Self {
             client: Arc::new(client),
             model: model.unwrap_or(Self::DEFAULT_MODEL),
+            duration: duration.unwrap_or(Self::DURATION),
         })
     }
 
@@ -105,8 +112,8 @@ impl Flopper {
             .get(&format!("{}/{}", Self::URL_WORK_STATUS, pull.uuid));
 
         loop {
-            info!("Wait for {} seconds", Self::DURATION);
-            tokio::time::sleep(std::time::Duration::from_secs(Self::DURATION as u64)).await;
+            info!("Wait for {} seconds", self.duration);
+            tokio::time::sleep(std::time::Duration::from_secs(self.duration as u64)).await;
             debug!("Clone and Send request");
             let r = r
                 .try_clone()

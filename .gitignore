@@ -2,3 +2,4 @@
 **/Cargo.lock
 /.vscode
 **/test_image.png
+.env

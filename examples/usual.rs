@@ -4,7 +4,7 @@ use base64::Engine;
 // for dotenv macro
 use dotenvy_macro::dotenv;
 // main package
-use flopper::{Flopper, GenType, Params};
+use flopper::prelude::*;
 // tracing
 use tracing::{info, Level};
 use tracing_subscriber::FmtSubscriber;
@@ -26,7 +26,7 @@ async fn main() -> anyhow::Result<()> {
     .expect("Fail to set global default subscriber");
 
     // Init Flopper instance
-    let flopper = Flopper::build(key.to_string(), secret.to_string(), None).await?;
+    let flopper = Flopper::build(key.to_string(), secret.to_string(), None, None).await?;
 
     // Make params by default and add your params
     let mut params = Params::default();

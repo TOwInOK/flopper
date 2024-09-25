@@ -1,9 +1,11 @@
 pub mod error;
 pub mod flopper;
+pub mod macros;
 pub mod result;
 
-pub use error::Errors;
-pub use flopper::gen_type::GenType;
-pub use flopper::params::Params;
-pub use flopper::Flopper;
-pub use result::Result;
+pub mod prelude {
+    pub use crate::error::Errors;
+    pub use crate::flop;
+    pub use crate::flopper::{gen_type::GenType, params::Params, Flopper};
+    pub use crate::result::Result;
+}
