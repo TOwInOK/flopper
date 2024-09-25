@@ -6,14 +6,7 @@ authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
 readme = "Readme.md"
 description = "unofficial api wrapper for fusionbrain.ai"
 categories = ["api-bindings"]
-keywords = [
-    "api",
-    "image",
-    "image-generation",
-    "image-generation-api",
-    "fusionbrain",
-    "kandinsky",
-]
+keywords = ["api", "image-generation", "fusionbrain", "kandinsky"]
 license = "MIT"
 repository = "https://github.com/TOwInOK/flopper"
 
