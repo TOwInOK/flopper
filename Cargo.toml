@@ -1,6 +1,6 @@
 [package]
 name = "flopper"
-version = "0.0.1"
+version = "0.0.11"
 edition = "2021"
 authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
 readme = "Readme.md"
